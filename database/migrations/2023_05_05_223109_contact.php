@@ -13,7 +13,7 @@ class Contact extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('contact', function (Blueprint $table) {
             $table->id();
             $table->string('email');
             $table->string('address');
