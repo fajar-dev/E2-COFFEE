@@ -1,3 +1,15 @@
+@section('seo')
+  <title>{{ $data['web']->meta_tittle }}</title>
+  <meta name="author" content="{{ $data['web']->company }}">
+  <meta name="description" content="{{ $data['web']->meta_description }}">
+  <meta name="keywords" content="{{ $data['web']->meta_tags }}">
+  <meta property="og:url" content="{{ url()->full(); }}" />
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ $data['product']->tittle }}" />
+  <meta property="og:image" content="{{Storage::url($data['product']->photo)}}" />
+  <meta property="og:description" content="{{ $data['web']->meta_description }}" />
+@endsection
+
 @extends('layout/app')
 @section('content')
 
@@ -15,10 +27,10 @@
             <img class="img-fluid rounded primary-border" src="img/profile.jpg" alt="">
           </div>						
           <div class="col-lg-5 video-left">
-            <h1>Arabika Gayo</h1>
-            <span class="ml-2">IDR. 30,000</span>
+            <h1>{{ $data['product']->tittle }}</h1>
+            <span class="ml-2">IDR. {{ $data['product']->price }}</span>
             <div>
-              <a href="#" class="btn btn-outline-success mt-5 btn-block"><i class="fa fa-whatsapp"></i> order via whatsapp</a>
+              <a href="https://wa.me/{{ $data['contact']->whatsapp }}" class="btn btn-outline-success mt-5 btn-block"><i class="fa fa-whatsapp"></i> order via whatsapp</a>
             </div>
           </div>
         </div>
@@ -30,10 +42,7 @@
         <h3 class="about-title mb-30">Description</h3>
         <div class="row">
           <div class="col-lg-12">
-            <p>Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks such as Party Gaming and PlayTech left the United States. Overnight, online casino players found themselves being chased by the Federal government. But, after a fortnight, the online casino industry came up with a solution and new online casinos started taking root. These began to operate under a different business umbrella, and by doing that, rendered the transfer of money to and from them legal. A major part of this was enlisting electronic banking systems that would accept this new clarification and start doing business with me. Listed in this article are the electronic banking systems that accept players from the United States that wish to play in online casinos.</p>
-          </div>
-          <div class="col-lg-12">
-            <p>Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks such as Party Gaming and PlayTech left the United States. Overnight, online casino players found themselves being chased by the Federal government. But, after a fortnight, the online casino industry came up with a solution and new online casinos started taking root. These began to operate under a different business umbrella, and by doing that, rendered the transfer of money to and from them legal. A major part of this was enlisting electronic banking systems that would accept this new clarification and start doing business with me. Listed in this article are the electronic banking systems that accept players from the United States that wish to play in online casinos.</p>
+            <?= $data['product']->description ?>
           </div>
         </div>
       </div>

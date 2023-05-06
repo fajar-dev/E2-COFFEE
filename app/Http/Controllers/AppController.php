@@ -30,6 +30,7 @@ class AppController extends Controller
         $data['web'] = DB::table('settings')->where('id', 1)->first(); 
         $data['contact'] = DB::table('contact')->where('id', 1)->first();
         $data['about'] = DB::table('about')->where('id', 1)->first();
+        $data['product'] = DB::table('product')->where('slug', $slug)->first();
         return view('app/product', compact('data'));
     }
 }

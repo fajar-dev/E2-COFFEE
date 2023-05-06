@@ -55,45 +55,21 @@
       </div>
     </div>						
     <div class="row">
+
+      @foreach ($data['product'] as $row)
       <div class="col-lg-4">
         <div class="single-menu text-center">
           <div class="title-div mb-0 pb-2">
-            <img class="img-fluid rounded primary-border mb-3" src="img/product.png" alt="">
-            <h4 class="mb-2">Cappuccino</h4>
-            <span class="price">IDR. 30,000</span>
+            <img class="img-fluid rounded primary-border mb-3" src="{{Storage::url($row->photo)}}" alt="">
+            <h4 class="mb-2">{{ $row->tittle }}</h4>
+            <span class="price">IDR. {{ $row->price }}</span>
           </div>
-          <p>
-            Usage of the Internet is becoming more common due to rapid advance.
-          </p>	
-          <a href="#">Buy Now</a>	
+          <?= substr($row->description, 0, 66); ?>...	
+          <a href="{{ route('product', ['slug' => $row->slug]) }}">More Info</a>	
         </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="single-menu text-center">
-          <div class="title-div mb-0 pb-2">
-            <img class="img-fluid rounded primary-border mb-3" src="img/product.png" alt="">
-            <h4 class="mb-2">Cappuccino</h4>
-            <span class="price">IDR. 30,000</span>
-          </div>
-          <p>
-            Usage of the Internet is becoming more common due to rapid advance.
-          </p>	
-          <a href="#">Buy Now</a>	
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="single-menu text-center">
-          <div class="title-div mb-0 pb-2">
-            <img class="img-fluid rounded primary-border mb-3" src="img/product.png" alt="">
-            <h4 class="mb-2">Cappuccino</h4>
-            <span class="price">IDR. 30,000</span>
-          </div>
-          <p>
-            Usage of the Internet is becoming more common due to rapid advance.
-          </p>	
-          <a href="#">Buy Now</a>	
-        </div>
-      </div>															
+      </div>		
+      @endforeach
+												
     </div>
   </div>	
 </section>
