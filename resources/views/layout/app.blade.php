@@ -59,7 +59,7 @@
               </div>
               <div>
                 <p class="pb-0 mb-0">
-                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> PT. green coffee | All rights reserved
+                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> {{ $data['web']->company }} | All rights reserved
                 </p>
                 <p class="footer-text">
                   Powered by <a href="https://colorlib.com" target="_blank">Garis Kode</a>

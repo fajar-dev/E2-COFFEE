@@ -6,9 +6,9 @@
     <div class="row fullscreen d-flex align-items-center justify-content-center text-center">
       <div class="banner-content col-lg-7">
         <h1>
-          PT. Green Coffee			
+          {{ $data['web']->company }}		
         </h1>
-        <h6 class="text-white text-uppercase mb-5">"Now you can feel the Energy"</h6>
+        <h6 class="text-white text-uppercase mb-5">"{{ $data['web']->motto }}"</h6>
         <a href="#about" class="primary-btn text-uppercase">See More</a>
       </div>											
     </div>
@@ -25,9 +25,8 @@
         <h6>Profile</h6>
         <h1>About Us</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa reiciendis explicabo placeat! Nesciunt explicabo et quod voluptas, deserunt blanditiis quibusdam autem cum fugiat amet architecto animi corrupti eos eligendi expedita?
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam ducimus modi illum quaerat, ipsa eveniet omnis ad? Velit voluptates, aspernatur dolore molestiae quam cupiditate, amet neque maiores esse itaque exercitationem!
-        </p>
+          {{ $data['about']->text }}
+         </p>
       </div>
     </div>
   </div>	
@@ -161,25 +160,25 @@
       <div class="col-lg-6 col-md-6 single-review pl-lg-5">
         <h4 class="mb-2">Email : </h4>
         <p class="pl-2">
-          Info@greencoffee.com
+          {{ $data['contact']->email }}
         </p>
         <h4 class="mb-2">Phone Number : </h4>
         <p class="pl-2">
-          +62895611024559
+          +{{ $data['contact']->whatsapp }}
         </p>
         <h4 class="mb-2">Addreas : </h4>
         <p class="pl-2">
-          Jalan Mangga Besar III No. 17, RT 06 RW 07, Kelurahan Bedali, Kecamatan Lawang, Kab. Malang, Jawa Timur, 60256
+          {{ $data['contact']->address }}
         </p>
         <p class="pl-2">
-          Jalan Mangga Besar III No. 17, RT 06 RW 07, Kelurahan Bedali, Kecamatan Lawang, Kab. Malang, Jawa Timur, 60256
+          {{ $data['contact']->second_address }}
         </p>
         <h4 class="mb-2 pt-4">Follow Us</h4>
         <p>Let us be social</p>
         <div class="footer-social d-flex align-items-center pt-2">
-          <a href="#"><img src="img/fb.svg" width="40" alt=""></a>
-          <a href="#"><img src="img/ig.svg" width="40" alt=""></a>
-          <a href="#"><img src="img/linkedin.svg" width="40" alt=""></a>
+          <a href="{{ $data['contact']->facebook }}"><img src="{{ asset('/theme') }}/img/fb.svg" width="40" alt=""></a>
+          <a href="{{ $data['contact']->instagram }}"><img src="{{ asset('/theme') }}/img/ig.svg" width="40" alt=""></a>
+          <a href="{{ $data['contact']->linkedin }}"><img src="{{ asset('/theme') }}/img/linkedin.svg" width="40" alt=""></a>
         </div>
       </div>	
     </div>
