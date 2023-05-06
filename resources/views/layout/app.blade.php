@@ -9,6 +9,7 @@
   @yield('seo')
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+  <link rel="stylesheet" href="{{ asset('/theme') }}/css/justifiedGallery.min.css" />
     <link rel="stylesheet" href="{{ asset('/theme') }}/css/linearicons.css">
     <link rel="stylesheet" href="{{ asset('/theme') }}/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('/theme') }}/css/bootstrap.css">
@@ -88,6 +89,14 @@
     <script src="{{ asset('/theme') }}/js/jquery.counterup.min.js"></script>					
     <script src="{{ asset('/theme') }}/js/mail-script.js"></script>	
     <script src="{{ asset('/theme') }}/js/main.js"></script>	
+    <script src="{{ asset('/theme') }}/js/jquery.justifiedGallery.min.js"></script>
+    <script>
+      $("#mygallery").justifiedGallery({
+    rowHeight : 350,
+    lastRow : 'nojustify',
+    margins : 10
+    });
+    </script>
   </body>
 </html>
 
