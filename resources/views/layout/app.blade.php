@@ -3,12 +3,10 @@
 <head>
   <!-- Mobile Specific Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" href="img/fav.png">
-  <meta name="author" content="codepixer">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
   <meta charset="UTF-8">
-  <title>Coffee</title>
+  <link rel="shortcut icon" href="{{Storage::url($data['web']->pavicon)}}">
+  @yield('seo')
+
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
     <link rel="stylesheet" href="{{ asset('/theme') }}/css/linearicons.css">
@@ -26,7 +24,7 @@
         <div class="container">
           <div class="row align-items-center justify-content-between d-flex py-3">
             <div id="logo">
-              <a href="index.html"><img src="{{ asset('/theme') }}/img/logo.png" alt="" title="" /></a>
+              <a href="index.html"><img src="{{Storage::url($data['web']->logo)}}" alt="" title="" /></a>
             </div>
             <nav id="nav-menu-container">
               <ul class="nav-menu">
@@ -55,7 +53,7 @@
           <div class="col">
             <div class="single-footer-widget d-lg-flex justify-content-lg-between">
               <div>
-                <img src="{{ asset('/theme') }}/img/logo.png" class="pt-2 mb-3 mb-lg-0" alt="" title="" />
+                <img src="{{Storage::url($data['web']->logo)}}" class="pt-2 mb-3 mb-lg-0" alt="" title="" />
               </div>
               <div>
                 <p class="pb-0 mb-0">
@@ -70,6 +68,7 @@
         </div>
       </div>
     </footer>	
+
     <!-- End footer Area -->	
 
     <script src="{{ asset('/theme') }}/js/vendor/jquery-2.2.4.min.js"></script>

@@ -16,4 +16,6 @@ use App\Http\Controllers\AppController;
 
 Route::get('/', [AppController::class, 'home'])->name('home');
 Route::get('/product/{slug}', [AppController::class, 'product'])->name('product');
+Route::post('/inbox', [AppController::class, 'inbox'])->name('send_message');
+
 

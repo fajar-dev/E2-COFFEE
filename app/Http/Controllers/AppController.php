@@ -13,7 +13,7 @@ class AppController extends Controller
         $data['about'] = DB::table('about')->where('id', 1)->first();
         $data['product'] = DB::table('product')->get();
         $data['gallery'] = DB::table('gallery')->get();
-        return view('app/home' , compact('data'));
+        return view('app/home', compact('data'));
     }
 
     public function inbox(Request $request){
@@ -22,12 +22,14 @@ class AppController extends Controller
             'email' => $request->email,
             'subject' => $request->subject,
             'message' => $request->message
-
         ]);
-        return redirect()->route('home')->with('success','Notes have been added');
+        return redirect()->route('home')->with('success','Message successfully sent');
     }
 
     public function product($slug){
-        return view('app/product');
+        $data['web'] = DB::table('settings')->where('id', 1)->first(); 
+        $data['contact'] = DB::table('contact')->where('id', 1)->first();
+        $data['about'] = DB::table('about')->where('id', 1)->first();
+        return view('app/product', compact('data'));
     }
 }

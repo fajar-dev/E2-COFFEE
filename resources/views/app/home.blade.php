@@ -1,3 +1,15 @@
+@section('seo')
+  <title>{{ $data['web']->meta_tittle }}</title>
+  <meta name="author" content="{{ $data['web']->company }}">
+  <meta name="description" content="{{ $data['web']->meta_description }}">
+  <meta name="keywords" content="{{ $data['web']->meta_tags }}">
+  <meta property="og:url" content="{{ url()->full(); }}" />
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ $data['web']->meta_tittle }}" />
+  <meta property="og:image" content="{{Storage::url($data['web']->meta_image)}}" />
+  <meta property="og:description" content="{{ $data['web']->meta_description }}" />
+@endsection
+
 @extends('layout/app')
 @section('content')
 
@@ -19,7 +31,7 @@
   <div class="container">
     <div class="row justify-content-start align-items-center">
       <div class="col-lg-6 video-right justify-content-center align-items-center d-flex">
-        <img class="img-fluid rounded primary-border" src="img/profile.jpg" alt="">
+        <img class="img-fluid rounded primary-border" src="{{Storage::url($data['about']->photo)}}" alt="">
       </div>						
       <div class="col-lg-6 video-left">
         <h6>Profile</h6>
@@ -139,8 +151,17 @@
     <div class="row d-flex align-items-center">
       <div class="col-lg-6 col-md-6 single-review">
         <div class="single-menu p-lg-5">
-          <form action="#">
+          <form action="{{ route('send_message') }}" method="POST">
+            @csrf
             <h4 class="text-dark mb-4">Send a Message</h4>
+              @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{ session('success') }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              @endif
             <div class="mt-10 mb-4">
               <input type="text" name="name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required="" class="single-input-primary rounded" fdprocessedid="x5s79">
             </div>
@@ -151,9 +172,9 @@
               <input type="text" name="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'" required="" class="single-input-primary rounded" fdprocessedid="x5s79">
             </div>
             <div class="mt-10 mb-4">
-              <textarea class="single-textarea rounded" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required=""></textarea>
+              <textarea class="single-textarea rounded" name="message" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required=""></textarea>
             </div>
-            <a href="#" class="genric-btn primary-border radius" style="text-decoration: none;">Send Message <span class="lnr lnr-arrow-right"></span></a>
+            <button type="submit" class="genric-btn primary-border radius" style="text-decoration: none;">Send Message <span class="lnr lnr-arrow-right"></span></button>
           </form>
         </div>
       </div>	
