@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +19,10 @@ use App\Http\Controllers\AppController;
 Route::get('/', [AppController::class, 'home'])->name('home');
 Route::get('/product/{slug}', [AppController::class, 'product'])->name('product');
 Route::post('/inbox', [AppController::class, 'inbox'])->name('send_message');
+
+Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/submit', [AuthController::class, 'login_action'])->name('submit')->middleware('guest');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
