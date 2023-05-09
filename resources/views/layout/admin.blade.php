@@ -31,7 +31,7 @@
                 <!-- Navbar nav -->
                 <ul class="navbar-nav flex-column" id="sideNavbar">
                     <li class="nav-item">
-                        <a class="nav-link has-arrow  active " href="index.html">
+                        <a class="nav-link has-arrow  <?php if( $data['page'] =='Dashboard'){echo 'active';}?> " href="{{ route('dashboard') }}">
                             <i data-feather="home" class="nav-icon icon-xs me-2"></i>  Dashboard
                         </a>
                     </li>
@@ -43,14 +43,14 @@
 
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <a class="nav-link " href="pages/layout.html">
+                        <a class="nav-link <?php if( $data['page'] =='About'){echo 'active';}?> " href="{{ route('about') }}">
                           <i class="bi bi-info-circle-fill nav-icon icon-xs me-2"></i> About
                         </a>
                     </li>
 
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navPages" aria-expanded="false" aria-controls="navPages">
+                        <a class="nav-link has-arrow  collapsed  " href="#!" data-bs-toggle="collapse" data-bs-target="#navPages" aria-expanded="false" aria-controls="navPages">
                           <i class="bi bi-bag nav-icon icon-xs me-2"></i> Product
                         </a>
                         <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
@@ -67,7 +67,7 @@
 
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <a class="nav-link " href="pages/layout.html">
+                        <a class="nav-link <?php if( $data['page'] =='Dashboard'){echo 'Gallery';}?> " href="pages/layout.html">
                           <i class="bi bi-image nav-icon icon-xs me-2"></i> Gallery
                         </a>
                     </li>
@@ -147,7 +147,9 @@
                 </nav>
             </div>
                 <!-- Container fluid -->
+                @if ( $data['page'] =='Dashboard')                    
                 <div class="bg-primary pt-10 pb-21"></div>
+                @endif
 
                 @yield('content')
               
@@ -168,7 +170,29 @@
 <!-- Theme JS -->
 <script src="{{ asset('/admin') }}/assets/js/theme.min.js"></script>
 
+@if (session('success'))
+<div class="toast-container position-fixed top-0 end-0 p-3 " >
+  <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header  bg-primary text-light">
+      <i class="bi bi-bell-fill"></i> 
+      <strong class="me-auto ms-2">Notification</strong>
+      <small>Now</small>
+      <button type="button" class="btn-close bg-light p-2" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{ session('success') }}
+    </div>
+  </div>
+</div>
+@endif
 
+  @yield('script')
+
+  <script>
+    setTimeout(function () {
+      $("#liveToast").removeClass("show");
+    }, 3000);
+  </script>
 
 </body>
 

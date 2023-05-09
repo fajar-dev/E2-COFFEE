@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -24,5 +25,8 @@ Route::get('/login', [AuthController::class, 'login'])->name('login')->middlewar
 Route::post('/submit', [AuthController::class, 'login_action'])->name('submit')->middleware('guest');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::post('/about_update', [AboutController::class, 'about_update'])->name('about_update');
+
 
 
