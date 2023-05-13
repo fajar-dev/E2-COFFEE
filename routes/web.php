@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\InboxController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\InformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +28,18 @@ Route::get('/login', [AuthController::class, 'login'])->name('login')->middlewar
 Route::post('/submit', [AuthController::class, 'login_action'])->name('submit')->middleware('guest');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::post('/about_update', [AboutController::class, 'about_update'])->name('about_update');
 
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::post('/gallery_add', [GalleryController::class, 'gallery_add'])->name('gallery_add');
+Route::post('/gallery_update', [GalleryController::class, 'gallery_update'])->name('gallery_update');
+Route::get('/gallery_delete/{id}', [GalleryController::class, 'gallery_delete'])->name('gallery_delete');
 
+Route::get('/contact/inbox', [InboxController::class, 'index'])->name('inbox');
+Route::get('/inbox_delete/{id}', [InboxController::class, 'inbox_delete'])->name('inbox_delete');
 
+Route::get('/contact/information', [InformationController::class, 'index'])->name('information');
+Route::post('/contact_update', [InformationController::class, 'contact_update'])->name('contact_update');
+Route::post('/sosmed_update', [InformationController::class, 'sosmed_update'])->name('sosmed_update');

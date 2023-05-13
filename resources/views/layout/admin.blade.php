@@ -67,23 +67,23 @@
 
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <a class="nav-link <?php if( $data['page'] =='Dashboard'){echo 'Gallery';}?> " href="pages/layout.html">
+                        <a class="nav-link <?php if( $data['page'] =='Gallery'){echo 'active';}?> " href="{{ route('gallery') }}">
                           <i class="bi bi-image nav-icon icon-xs me-2"></i> Gallery
                         </a>
                     </li>
 
                      <!-- Nav item -->
                      <li class="nav-item">
-                      <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navPages1" aria-expanded="false" aria-controls="navPages">
+                      <a class="nav-link has-arrow  collapsed <?php if( $data['page'] =='Inbox' OR $data['page'] =='Information'){echo 'active';}?>" href="#!" data-bs-toggle="collapse" data-bs-target="#navPages1" aria-expanded="false" aria-controls="navPages">
                         <i class="bi bi-telephone nav-icon icon-xs me-2"></i> Contact
                       </a>
-                      <div id="navPages1" class="collapse " data-bs-parent="#sideNavbar">
+                      <div id="navPages1" class="collapse <?php if( $data['page'] =='Inbox' OR $data['page'] =='Information'){echo 'show';}?>" data-bs-parent="#sideNavbar">
                           <ul class="nav flex-column">
                               <li class="nav-item">
-                                  <a class="nav-link " href="pages/profile.html">Inbox</a>
+                                  <a class="nav-link <?php if( $data['page'] =='Inbox'){echo 'active';}?>" href="{{ route('inbox') }}">Inbox</a>
                               </li>
                               <li class="nav-item">
-                                  <a class="nav-link " href="pages/profile.html">Information</a>
+                                  <a class="nav-link <?php if( $data['page'] =='Information'){echo 'active';}?>" href="{{ route('information') }}">Information</a>
                               </li>
                           </ul>
                       </div>
@@ -170,6 +170,33 @@
 <!-- Theme JS -->
 <script src="{{ asset('/admin') }}/assets/js/theme.min.js"></script>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('body').on("click", ".btn-del", function() {
+          var link = $(this).attr('id');
+          $('#delete').modal('show');
+          $('.btn-delete-oke').click(function() {
+              location.replace(link);
+          });
+      });
+  });
+  </script>
+
+<div class="modal modal-delete" id="delete"  data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content shadow rounded ">
+      <div class="modal-body p-4 text-center">
+        <h5 class="mb-2">Alert !!</h5>
+        <p class="mb-0">Are you sure you want to delete this?</p>
+      </div>
+      <div class="modal-footer flex-nowrap p-0">
+        <button type="button" class="btn-delete-oke btn btn-lg btn-secondary bg-transparent text-dark fs-6 text-decoration-none col-6 m-0 rounded-0 border-end" ><strong>Delete</strong></button>
+        <button type="button" class="btn btn-lg btn-secondary bg-transparent text-dark fs-6 text-decoration-none col-6 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @if (session('success'))
 <div class="toast-container position-fixed top-0 end-0 p-3 " >
   <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
@@ -181,6 +208,22 @@
     </div>
     <div class="toast-body">
       {{ session('success') }}
+    </div>
+  </div>
+</div>
+@endif
+
+@if ($errors->any())
+<div class="toast-container position-fixed top-0 end-0 p-3 " >
+  <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header  bg-danger text-light">
+      <i class="bi bi-bell-fill"></i> 
+      <strong class="me-auto ms-2">Notification</strong>
+      <small>Now</small>
+      <button type="button" class="btn-close bg-light p-2" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{ $errors }}
     </div>
   </div>
 </div>

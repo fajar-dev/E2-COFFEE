@@ -22,6 +22,9 @@ class AboutController extends Controller
                 'text' => $request->content
             ]);
         }else{
+             $request->validate([
+                'image' => 'required|mimes:jpeg,png,jpg,gif'
+            ]);
             $image_path = $request->file('image')->store('image', 'public');
             DB::table('about') ->where('id', 1)->update([
                 'text' => $request->content,
