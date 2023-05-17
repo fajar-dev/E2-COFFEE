@@ -26,7 +26,7 @@
             <div class="nav-scroller">
                 <!-- Brand logo -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('/admin') }}/assets/images/brand/logo/logo.svg" alt="" />
+                    <img src="{{Storage::url($data['web']->logo)}}" alt="" />
                 </a>
                 <!-- Navbar nav -->
                 <ul class="navbar-nav flex-column" id="sideNavbar">
@@ -90,22 +90,26 @@
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link " href="pages/layout.html">
+                    <a class="nav-link <?php if( $data['page'] =='Setting'){echo 'active';}?>" href="{{ route('setting') }}">
                       <i class="bi bi-gear nav-icon icon-xs me-2"></i> Setting
                     </a>
                   </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link " href="pages/layout.html">
+                  <li class="nav-item">
+                      <div class="navbar-heading">Account</div>
+                  </li>
+
+                  <li class="nav-item">
+                        <a class="nav-link " href="{{route('admin')}}">
                             <i data-feather="user" class="nav-icon icon-xs me-2" ></i> Admin
                         </a>
-                    </li>
+                  </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link " href="pages/layout.html">
+                  <li class="nav-item">
+                        <a class="nav-link " href="{{route('logout')}}">
                             <i data-feather="power" class="nav-icon icon-xs me-2" ></i> Logout
                         </a>
-                    </li>
+                  </li>
                 </ul>
             </div>
         </nav>
@@ -128,14 +132,14 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
                                 <div class="px-4 pb-0 pt-2">
                                     <div class="lh-1 ">
-                                        <h5 class="mb-1"> John E. Grainger</h5>
+                                        <h5 class="mb-1"> {{Auth::user()->name}}</h5>
                                         <span class="text-inherit fs-6">admin</span>
                                     </div>
                                     <div class=" dropdown-divider mt-3 mb-2"></div>
                                 </div>
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a class="dropdown-item" href="index.html">
+                                        <a class="dropdown-item" href="{{route('logout')}}">
                                             <i class="me-2 icon-xxs dropdown-item-icon"
                                             data-feather="power"></i>Sign Out
                                         </a>

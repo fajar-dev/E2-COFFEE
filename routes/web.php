@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\InboxController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InformationController;
 
@@ -26,20 +27,26 @@ Route::post('/inbox', [AppController::class, 'inbox'])->name('send_message');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/submit', [AuthController::class, 'login_action'])->name('submit')->middleware('guest');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::post('/about_update', [AboutController::class, 'about_update'])->name('about_update');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
-Route::post('/gallery_add', [GalleryController::class, 'gallery_add'])->name('gallery_add');
-Route::post('/gallery_update', [GalleryController::class, 'gallery_update'])->name('gallery_update');
-Route::get('/gallery_delete/{id}', [GalleryController::class, 'gallery_delete'])->name('gallery_delete');
+Route::get('/about', [AboutController::class, 'index'])->name('about')->middleware('auth');
+Route::post('/about_update', [AboutController::class, 'about_update'])->name('about_update')->middleware('auth');
 
-Route::get('/contact/inbox', [InboxController::class, 'index'])->name('inbox');
-Route::get('/inbox_delete/{id}', [InboxController::class, 'inbox_delete'])->name('inbox_delete');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery')->middleware('auth');
+Route::post('/gallery_add', [GalleryController::class, 'gallery_add'])->name('gallery_add')->middleware('auth');
+Route::post('/gallery_update', [GalleryController::class, 'gallery_update'])->name('gallery_update')->middleware('auth');
+Route::get('/gallery_delete/{id}', [GalleryController::class, 'gallery_delete'])->name('gallery_delete')->middleware('auth');
 
-Route::get('/contact/information', [InformationController::class, 'index'])->name('information');
-Route::post('/contact_update', [InformationController::class, 'contact_update'])->name('contact_update');
-Route::post('/sosmed_update', [InformationController::class, 'sosmed_update'])->name('sosmed_update');
+Route::get('/contact/inbox', [InboxController::class, 'index'])->name('inbox')->middleware('auth');
+Route::get('/inbox_delete/{id}', [InboxController::class, 'inbox_delete'])->name('inbox_delete')->middleware('auth');
+
+Route::get('/contact/information', [InformationController::class, 'index'])->name('information')->middleware('auth');
+Route::post('/contact_update', [InformationController::class, 'contact_update'])->name('contact_update')->middleware('auth');
+Route::post('/sosmed_update', [InformationController::class, 'sosmed_update'])->name('sosmed_update')->middleware('auth');
+
+Route::get('/setting', [SettingController::class, 'index'])->name('setting')->middleware('auth');
+Route::post('/general_update', [SettingController::class, 'general_update'])->name('general_update')->middleware('auth');
+Route::post('/seo_update', [SettingController::class, 'seo_update'])->name('seo_update')->middleware('auth');
