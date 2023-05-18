@@ -15,8 +15,8 @@
   <div class="row mb-8">
     <div class="col-xl-3 col-lg-4 col-md-12 col-12">
       <div class="mb-4 mb-lg-0">
-        <h4 class="mb-1">About Us</h4>
-        <p class="mb-0 fs-5 text-muted">About configuration settings </p>
+        <h4 class="mb-1">Product</h4>
+        <p class="mb-0 fs-5 text-muted">{{ $data['page'] }}</p>
       </div>
 
     </div>
@@ -32,7 +32,7 @@
               <div class="col-md-9 offset-md-3">
                 <div class="">
                   <div class="me-3">
-                    <img src="{{Storage::url($data['about']->photo)}}" id="preview" class="img-fluid mb-8"alt="">
+                    <img src="" id="preview" class="img-fluid mb-8"alt="">
                   </div>
               </div>
             </div>
@@ -50,13 +50,55 @@
                 </div>
               </div>
             </div>
-            <div class="row align-items-center mb-0">
+            <div class="row align-items-center mb-8">
               <div class="col-md-3 mb-3 mb-md-0">
-                <h5 class="mb-0">Content</h5>
+                <h5 class="mb-0">Tittle</h5>
               </div>
               <div class="col-md-9">
                 <div class="">
-                  <textarea class="form-control" name="content" placeholder="Add a content" rows="10" id="fullName" required>{{ $data['about']->text }}</textarea>
+                  <div>
+                    <div class="input-group">
+                      <input type="text" placeholder="Tittle Product" class="form-control" >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-8">
+              <div class="col-md-3 mb-3 mb-md-0">
+                <h5 class="mb-0">Slug</h5>
+              </div>
+              <div class="col-md-9">
+                <div class="">
+                  <div>
+                    <div class="">
+                      <input type="text" placeholder="Slug Product" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row align-items-center mb-8">
+              <div class="col-md-3 mb-3 mb-md-0">
+                <h5 class="mb-0">Price</h5>
+              </div>
+              <div class="col-md-9">
+                <div class="">
+                  <div>
+                    <div class="input-group">
+                      <input type="number" class="form-control" onchange="showPreview(event);" accept="image/*" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row align-items-center mb-0">
+              <div class="col-md-3 mb-3 mb-md-0">
+                <h5 class="mb-0">Description</h5>
+              </div>
+              <div class="col-md-9">
+                <div class="">
+                  <textarea class="form-control" name="content" placeholder="Add a content" rows="10" id="fullName" required></textarea>
                 </div>
               </div>
               <div class="offset-md-3 col-md-8 mt-8">

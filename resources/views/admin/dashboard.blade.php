@@ -29,11 +29,9 @@
               <div class="avatar-xxl avatar-indicators avatar-online me-2
                   position-relative d-flex justify-content-end
                   align-items-end mt-n10">
-                <img src="{{ asset('/admin') }}/assets/images/avatar/avatar-1.jpg" class="avatar-xxl
+                <img src="https://ui-avatars.com/api/?name={{Auth::user()->name}}&background=random&color=ffff" class="avatar-xxl
                     rounded-circle border border-4 border-white-color-40" alt="">
-                <a href="#!" class="position-absolute top-0 right-0 me-2" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Verified">
-                  <img src="{{ asset('/admin') }}/assets/images/svg/checked-mark.svg" alt="" height="30" width="30">
-                </a>
+
               </div>
               <!-- text -->
               <div class="lh-1">

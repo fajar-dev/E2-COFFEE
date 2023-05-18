@@ -28,7 +28,7 @@
             @csrf
             <div class="row align-items-center mb-8">
               <div class="col-md-9 offset-md-3">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div class="me-3">
                     <img src="{{Storage::url($data['web']->logo)}}" id="preview" class="img-fluid mb-8"alt="">
                   </div>
@@ -39,7 +39,7 @@
                 <h5 class="mb-0">Logo</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div>
                     <div class="input-group">
                       <input type="file" class="form-control" onchange="showPreview(event);" accept="image/*" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
@@ -53,7 +53,7 @@
                 <h5 class="mb-0">Company Name</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div>
                     <div class="input-group">
                       <input type="text" class="form-control" required name="company" value="{{ $data['web']->company }}">
@@ -67,7 +67,7 @@
                 <h5 class="mb-0">Motto</h5>
               </div>
               <div class="col-md-9">
-                  <div class="d-flex align-items-center">
+                  <div class="">
                   <div>
                     <div class="input-group">
                       <input type="text" class="form-control w-100" required name="motto" value="{{ $data['web']->motto }}">
@@ -105,7 +105,7 @@
             @csrf
             <div class="row align-items-center mb-8">
               <div class="col-md-9 offset-md-3">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div class="me-3">
                     <img src="{{Storage::url($data['web']->meta_image)}}" id="preview1" class="img-fluid mb-8"alt="">
                   </div>
@@ -116,7 +116,7 @@
                 <h5 class="mb-0">Metta Image</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div>
                     <div class="input-group">
                       <input type="file" class="form-control" onchange="showPreview1(event);" accept="image/*" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
@@ -130,7 +130,7 @@
                 <h5 class="mb-0">Metta Tittle</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div>
                     <div class="input-group">
                       <input type="text" class="form-control" required name="tittle" value="{{ $data['web']->meta_tittle }}">
@@ -144,7 +144,7 @@
                 <h5 class="mb-0">Metta Description</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <textarea class="form-control" name="desk" placeholder="Add a content" rows="3" id="fullName" required>{{ $data['web']->meta_description }}</textarea>
                 </div>
               </div>
@@ -154,7 +154,7 @@
                 <h5 class="mb-0">Meta Tags</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <textarea class="form-control" name="tags" placeholder="Add a content" rows="3" id="fullName" required>{{ $data['web']->meta_tags }}</textarea>
                 </div>
               </div>

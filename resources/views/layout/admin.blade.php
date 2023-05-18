@@ -50,16 +50,16 @@
 
                     <!-- Nav item -->
                     <li class="nav-item">
-                        <a class="nav-link has-arrow  collapsed  " href="#!" data-bs-toggle="collapse" data-bs-target="#navPages" aria-expanded="false" aria-controls="navPages">
+                        <a class="nav-link has-arrow  collapsed  <?php if( $data['page'] =='Product List' OR $data['page'] =='Add Product'){echo 'active';}?>" href="#!" data-bs-toggle="collapse" data-bs-target="#navPages" aria-expanded="false" aria-controls="navPages">
                           <i class="bi bi-bag nav-icon icon-xs me-2"></i> Product
                         </a>
-                        <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
+                        <div id="navPages" class="collapse  <?php if( $data['page'] =='Product List' OR $data['page'] =='Add Product'){echo 'show';}?>" data-bs-parent="#sideNavbar">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link " href="pages/profile.html">Add Product</a>
+                                    <a class="nav-link  <?php if( $data['page'] =='Add Product'){echo 'active';}?> " href="{{ route('product_add') }}">Add Product</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="pages/profile.html">List Product</a>
+                                    <a class="nav-link <?php if( $data['page'] =='Product List'){echo 'active';}?> " href="{{ route('product_list') }}">List Product</a>
                                 </li>
                             </ul>
                         </div>
@@ -100,7 +100,7 @@
                   </li>
 
                   <li class="nav-item">
-                        <a class="nav-link " href="{{route('admin')}}">
+                        <a class="nav-link " href="">
                             <i data-feather="user" class="nav-icon icon-xs me-2" ></i> Admin
                         </a>
                   </li>
@@ -126,7 +126,7 @@
                         <li class="dropdown ms-2">
                             <a class="rounded-circle" href="#" role="button" id="dropdownUser" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="avatar avatar-md avatar-indicators avatar-online">
-                                    <img alt="avatar" src="{{ asset('/admin') }}/assets/images/avatar/avatar-1.jpg" class="rounded-circle" />
+                                    <img alt="avatar" src="	https://ui-avatars.com/api/?name={{Auth::user()->name}}&background=random&color=ffff" class="rounded-circle" />
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">

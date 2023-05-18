@@ -31,7 +31,7 @@
                 <h5 class="mb-0">Email</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div>
                     <div class="input-group">
                       <input type="email" class="form-control" required name="email" value="{{ $data['contact']->email }}">
@@ -45,7 +45,7 @@
                 <h5 class="mb-0">Whatsapp</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div>
                     <div class="input-group">
                       <input type="number" class="form-control" required name="wa" value="{{ $data['contact']->whatsapp }}">
@@ -59,7 +59,7 @@
                 <h5 class="mb-0">Address</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <textarea class="form-control" name="address" placeholder="Add a content" rows="5" id="fullName" required>{{ $data['contact']->address }}</textarea>
                 </div>
               </div>
@@ -69,7 +69,7 @@
                 <h5 class="mb-0">Second Address</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <textarea class="form-control" name="second_address" placeholder="Add a content" rows="5" id="fullName" required>{{ $data['contact']->second_address }}</textarea>
                 </div>
               </div>
@@ -105,7 +105,7 @@
                 <h5 class="mb-0">Facebook</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div>
                     <div class="input-group">
                       <input type="text" class="form-control" required name="fb" value="{{ $data['contact']->facebook }}">
@@ -119,7 +119,7 @@
                 <h5 class="mb-0">Instagram</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div>
                     <div class="input-group">
                       <input type="text" class="form-control" required name="ig" value="{{ $data['contact']->instagram }}">
@@ -133,7 +133,7 @@
                 <h5 class="mb-0">Linkedin</h5>
               </div>
               <div class="col-md-9">
-                <div class="d-flex align-items-center">
+                <div class="">
                   <div>
                     <div class="input-group">
                       <input type="text" class="form-control" required name="in" value="{{ $data['contact']->linkedin }}">

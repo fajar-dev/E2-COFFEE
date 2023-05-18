@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\InboxController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InformationController;
@@ -50,3 +51,7 @@ Route::post('/sosmed_update', [InformationController::class, 'sosmed_update'])->
 Route::get('/setting', [SettingController::class, 'index'])->name('setting')->middleware('auth');
 Route::post('/general_update', [SettingController::class, 'general_update'])->name('general_update')->middleware('auth');
 Route::post('/seo_update', [SettingController::class, 'seo_update'])->name('seo_update')->middleware('auth');
+
+Route::get('/product_list', [ProductController::class, 'index'])->name('product_list')->middleware('auth');
+Route::get('/product_add', [ProductController::class, 'product_add'])->name('product_add')->middleware('auth');
+Route::get('/product_delete/{id}', [ProductController::class, 'product_delete'])->name('product_delete')->middleware('auth');
