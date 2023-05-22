@@ -50,6 +50,97 @@
           </div>
         </div>
       </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-lg-4">
+      <div class="card mt-3">
+        <!-- card body -->
+        <div class="card-body">
+          <!-- heading -->
+          <div class="d-flex justify-content-between align-items-center
+            mb-3">
+            <div>
+              <h4 class="mb-0">Product</h4>
+            </div>
+            <div class="icon-shape icon-md bg-light-primary text-primary
+              rounded-2">
+              <i class="bi bi-briefcase fs-4"></i>
+            </div>
+          </div>
+          <!-- project number -->
+          <div>
+            <h1 class="fw-bold">{{ $data['product'] }}</h1>
+            <p class="mb-0"><span class="text-dark me-2">Items</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-3">
+        <!-- card body -->
+        <div class="card-body">
+          <!-- heading -->
+          <div class="d-flex justify-content-between align-items-center
+            mb-3">
+            <div>
+              <h4 class="mb-0">Gallery</h4>
+            </div>
+            <div class="icon-shape icon-md bg-light-primary text-primary
+              rounded-2">
+              <i class="bi bi-bullseye fs-4"></i>
+            </div>
+          </div>
+          <!-- project number -->
+          <div>
+            <h1 class="fw-bold">{{ $data['gallery'] }}</h1>
+            <p class="mb-0"><span class="text-dark me-2">photo</span></p>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="col-lg-8">
+      <div class="card">
+        <!-- card header  -->
+        <div class="card-header bg-white  py-4">
+          <h4 class="mb-0">New Message</h4>
+        </div>
+        <!-- table  -->
+        <div class="table-responsive">
+          <table class="table text-nowrap mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>Subject</th>
+                <th>Sender</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($data['inbox'] as $row)
+              <tr>
+                <td class="align-middle"><div class="d-flex
+                    align-items-center">
+                    <div>
+                      <div class="icon-shape icon-md border p-4
+                        rounded-1">
+                        <img src="{{ asset('/admin') }}/assets/images/mail.png" width="20" alt="">
+                      </div>
+                    </div>
+                    <div class="ms-3 lh-1">
+                      <h5 class=" mb-1">{{ $row->subject }}
+                      </h5>
+                      <small>{{ $row->created_at }}</small>
+                    </div>
+                  </div></td>
+                <td class="align-middle">{{ $row->name }}</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+        <!-- card footer  -->
+        <div class="card-footer bg-white text-center">
+          <a href="{{route('inbox')}}" class="link-primary">View All</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection

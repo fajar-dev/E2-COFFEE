@@ -61,10 +61,10 @@
         <div class="single-menu text-center">
           <div class="title-div mb-0 pb-2">
             <img class="img-fluid rounded primary-border mb-3" src="{{Storage::url($row->photo)}}" alt="">
-            <h4 class="mb-2">{{ $row->tittle }}</h4>
-            <span class="price">IDR. {{ $row->price }}</span>
+            <a href="{{ route('product', ['slug' => $row->slug]) }}"><h4 class="mb-2">{{ $row->tittle }}</h4></a>	<br>
+            <span class="price">IDR. {{ number_format($row->price,2,',','.') }}</span>
           </div>
-          <?= substr($row->description, 0, 66); ?>...	
+          <?= substr($row->description, 0, 66); ?>...	<br>
           <a href="{{ route('product', ['slug' => $row->slug]) }}">More Info</a>	
         </div>
       </div>		
@@ -80,7 +80,7 @@
       <div class="menu-content pb-60 col-lg-10">
         <div class="title text-center">
           <h1 class="mb-10">Gallery</h1>
-          <p>Who are in extremely love with eco friendly system.</p>
+          <p>Our Photo Gallery</p>
         </div>
       </div>
     </div>						

@@ -28,7 +28,7 @@
           </div>						
           <div class="col-lg-5 video-left">
             <h1>{{ $data['product']->tittle }}</h1>
-            <span class="ml-2">IDR. {{ $data['product']->price }}</span>
+            <span class="ml-2">IDR. {{ number_format($data['product']->price,2,',','.') }}</span>
             <div>
               <a href="https://wa.me/{{ $data['contact']->whatsapp }}" class="btn btn-outline-success mt-5 btn-block"><i class="fa fa-whatsapp"></i> order via whatsapp</a>
             </div>
