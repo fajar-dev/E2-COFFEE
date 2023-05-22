@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\InboxController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InformationController;
@@ -58,3 +59,7 @@ Route::get('/product_delete/{id}', [ProductController::class, 'product_delete'])
 Route::post('/product_submit', [ProductController::class, 'product_submit'])->name('product_submit')->middleware('auth');
 Route::get('/product_edit/{id}', [ProductController::class, 'product_edit'])->name('product_edit')->middleware('auth');
 Route::post('/product_update', [ProductController::class, 'product_update'])->name('product_update')->middleware('auth');
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+Route::post('/account_update', [ProfileController::class, 'account_update'])->name('account_update')->middleware('auth');
+Route::post('/password_update', [ProfileController::class, 'password_update'])->name('password_update')->middleware('auth');

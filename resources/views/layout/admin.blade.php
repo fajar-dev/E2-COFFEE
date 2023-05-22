@@ -100,8 +100,8 @@
                   </li>
 
                   <li class="nav-item">
-                        <a class="nav-link " href="">
-                            <i data-feather="user" class="nav-icon icon-xs me-2" ></i> Admin
+                        <a class="nav-link <?php if( $data['page'] =='Profile'){echo 'active';}?>" href="{{route('profile')}}">
+                            <i data-feather="user" class="nav-icon icon-xs me-2" ></i> Profile
                         </a>
                   </li>
 
@@ -212,6 +212,22 @@
     </div>
     <div class="toast-body">
       {{ session('success') }}
+    </div>
+  </div>
+</div>
+@endif
+
+@if (session('error'))
+<div class="toast-container position-fixed top-0 end-0 p-3 " >
+  <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header  bg-danger text-light">
+      <i class="bi bi-bell-fill"></i> 
+      <strong class="me-auto ms-2">Notification</strong>
+      <small>Now</small>
+      <button type="button" class="btn-close bg-light p-2" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{ session('error') }}
     </div>
   </div>
 </div>
