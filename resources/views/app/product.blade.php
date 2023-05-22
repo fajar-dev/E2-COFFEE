@@ -24,7 +24,7 @@
       <div class="container">
         <div class="row justify-content-start align-items-center">
           <div class="col-lg-7 video-right justify-content-center align-items-center d-flex">
-            <img class="img-fluid rounded primary-border" src="img/profile.jpg" alt="">
+            <img class="img-fluid rounded primary-border" src="{{Storage::url($data['product']->photo)}}" alt="">
           </div>						
           <div class="col-lg-5 video-left">
             <h1>{{ $data['product']->tittle }}</h1>

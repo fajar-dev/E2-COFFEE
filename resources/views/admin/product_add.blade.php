@@ -26,7 +26,7 @@
       <div class="card">
         <!-- card body -->
         <div class="card-body">
-          <form action="{{ route('about_update') }}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('product_submit') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row align-items-center mb-8">
               <div class="col-md-9 offset-md-3">
@@ -44,7 +44,7 @@
                 <div class="">
                   <div>
                     <div class="input-group">
-                      <input type="file" class="form-control" onchange="showPreview(event);" accept="image/*" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                      <input type="file" class="form-control" onchange="showPreview(event);" accept="image/*" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
                     </div>
                   </div>
                 </div>
@@ -58,21 +58,7 @@
                 <div class="">
                   <div>
                     <div class="input-group">
-                      <input type="text" placeholder="Tittle Product" class="form-control" >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-8">
-              <div class="col-md-3 mb-3 mb-md-0">
-                <h5 class="mb-0">Slug</h5>
-              </div>
-              <div class="col-md-9">
-                <div class="">
-                  <div>
-                    <div class="">
-                      <input type="text" placeholder="Slug Product" class="form-control">
+                      <input type="text" placeholder="Tittle Product" name="tittle" class="form-control" required>
                     </div>
                   </div>
                 </div>
@@ -86,7 +72,7 @@
                 <div class="">
                   <div>
                     <div class="input-group">
-                      <input type="number" class="form-control" onchange="showPreview(event);" accept="image/*" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                      <input type="number" class="form-control" name="price" required>
                     </div>
                   </div>
                 </div>
@@ -98,7 +84,7 @@
               </div>
               <div class="col-md-9">
                 <div class="">
-                  <textarea class="form-control" name="content" placeholder="Add a content" rows="10" id="fullName" required></textarea>
+                  <textarea class="form-control" name="desk" placeholder="Add a content" rows="10" id="fullName" required></textarea>
                 </div>
               </div>
               <div class="offset-md-3 col-md-8 mt-8">

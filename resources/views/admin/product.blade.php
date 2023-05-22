@@ -11,7 +11,7 @@
             <h3 class="mb-0">{{ $data['page'] }}</h3>
           </div>
           <div>
-            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_photo"><i class="bi bi-plus-circle-fill"></i> Add Product</a>
+            <a href="{{ route('product_add') }}" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> Add Product</a>
           </div>
         </div>
       </div>

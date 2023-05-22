@@ -55,3 +55,5 @@ Route::post('/seo_update', [SettingController::class, 'seo_update'])->name('seo_
 Route::get('/product_list', [ProductController::class, 'index'])->name('product_list')->middleware('auth');
 Route::get('/product_add', [ProductController::class, 'product_add'])->name('product_add')->middleware('auth');
 Route::get('/product_delete/{id}', [ProductController::class, 'product_delete'])->name('product_delete')->middleware('auth');
+Route::post('/product_submit', [ProductController::class, 'product_submit'])->name('product_submit')->middleware('auth');
+Route::get('/product_edit/{id}', [ProductController::class, 'product_edit'])->name('product_edit')->middleware('auth');
