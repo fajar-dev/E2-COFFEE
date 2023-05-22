@@ -57,3 +57,4 @@ Route::get('/product_add', [ProductController::class, 'product_add'])->name('pro
 Route::get('/product_delete/{id}', [ProductController::class, 'product_delete'])->name('product_delete')->middleware('auth');
 Route::post('/product_submit', [ProductController::class, 'product_submit'])->name('product_submit')->middleware('auth');
 Route::get('/product_edit/{id}', [ProductController::class, 'product_edit'])->name('product_edit')->middleware('auth');
+Route::post('/product_update', [ProductController::class, 'product_update'])->name('product_update')->middleware('auth');

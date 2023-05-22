@@ -54,8 +54,8 @@
                 </td>
                 <td class="align-middle">
                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#edit_photo{{ $row->id }}" class="btn btn-light"><i class="bi bi-eye"></i></button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#edit_photo{{ $row->id }}" class="btn btn-warning"><i class="bi bi-pencil"></i></button>
+                    <a href="/product/{{ $row->slug }}" target="_blank" class="btn btn-light"><i class="bi bi-eye"></i></a>
+                    <a href="/product_edit/{{ $row->id }}" class="btn btn-warning"><i class="bi bi-pencil"></i></a>
                     <button type="button" id="/product_delete/{{ $row->id }}" class="btn btn-danger btn-del"><i class="bi bi-trash"></i></button>
                   </div>
                 </td>    

@@ -26,14 +26,14 @@
       <div class="card">
         <!-- card body -->
         <div class="card-body">
-          <form action="{{ route('product_submit') }}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('product_update') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="" > 
+            <input type="hidden" name="id" value="{{ $data['product']->id }}" > 
             <div class="row align-items-center mb-8">
               <div class="col-md-9 offset-md-3">
                 <div class="">
                   <div class="me-3">
-                    <img src="{{ $data['product']->tittle }}" id="preview" class="img-fluid mb-8"alt="">
+                    <img src="{{Storage::url($data['product']->photo)}}" id="preview" class="img-fluid mb-8"alt="">
                   </div>
               </div>
             </div>

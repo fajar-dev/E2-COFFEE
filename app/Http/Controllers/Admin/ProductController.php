@@ -55,15 +55,16 @@ class ProductController extends Controller
              $request->validate([
                 'image' => 'required|mimes:jpeg,png,jpg,gif'
             ]);
-            $image_path = $request->file('image')->store('image', 'public');
-            DB::table('product')->where('id', $request->id)->update([
-            'tittle' => $request->tittle,
-            'slug' => preg_replace('/[^a-z0-9]+/i', '-', trim(strtolower($request->tittle))),
-            'price' => $request->price,
-            'description' => $request->desk,
-            'photo' => $image_path,
-        ]);
+                $image_path = $request->file('image')->store('image', 'public');
+                DB::table('product')->where('id', $request->id)->update([
+                'tittle' => $request->tittle,
+                'slug' => preg_replace('/[^a-z0-9]+/i', '-', trim(strtolower($request->tittle))),
+                'price' => $request->price,
+                'description' => $request->desk,
+                'photo' => $image_path,
+            ]);
         }
+        return redirect()->route('product_list')->with('success','product has been saved');
     } 
 
     public function product_delete($id){
