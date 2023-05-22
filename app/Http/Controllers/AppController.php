@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class AppController extends Controller
 {
     public function home(){
+        $data['page'] = 'home';
         $data['web'] = DB::table('settings')->where('id', 1)->first(); 
         $data['contact'] = DB::table('contact')->where('id', 1)->first();
         $data['about'] = DB::table('about')->where('id', 1)->first();
@@ -27,6 +28,7 @@ class AppController extends Controller
     }
 
     public function product($slug){
+        $data['page'] = 'product';
         $data['web'] = DB::table('settings')->where('id', 1)->first(); 
         $data['contact'] = DB::table('contact')->where('id', 1)->first();
         $data['about'] = DB::table('about')->where('id', 1)->first();

@@ -18,6 +18,14 @@
     <link rel="stylesheet" href="{{ asset('/theme') }}/css/animate.min.css">
     <link rel="stylesheet" href="{{ asset('/theme') }}/css/owl.carousel.css">
     <link rel="stylesheet" href="{{ asset('/theme') }}/css/main.css">
+    <style>
+       .float-button-wrapper {position: fixed;    left: 25px;    bottom: 100px;}
+        .float-button-wrapper p {left: 15px;    font-size: 11px; margin-bottom: 3px;}
+        .float-button-page img {background: none; border: none; padding: 0; margin: 0;}
+        .float-button-page a {float: left; clear: left; margin-bottom: 1px;}
+        .float-button-page a:hover img {background-color: #f1f1f1; filter: alpha(opacity=50); -moz-opacity: 0.5;    -khtml-opacity: 0.5; opacity: 0.5;}
+        .float-button-page {position: absolute;    background: none;}
+    </style>
   </head>
   <body>
 
@@ -29,17 +37,16 @@
             </div>
             <nav id="nav-menu-container">
               <ul class="nav-menu">
-                <li class="menu-active"><a href="#home">Home</a></li>
+                @if ($data['page'] == 'home')
+                <li class="menu-active"><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#coffee">Coffee</a></li>
-                <li><a href="#review">Review</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li class="menu-has-children"><a href="">Pages</a>
-                  <ul>
-                    <li><a href="generic.html">Generic</a></li>
-                    <li><a href="elements.html">Elements</a></li>
-                  </ul>
-                </li>
+                <li><a href="#product">Product</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>                    
+                @else
+                <li class="menu-active"><a href="{{ route('home') }}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                  Back</a></li>
+                @endif
               </ul>
             </nav>	    		
           </div>
@@ -61,14 +68,22 @@
                   Copyright &copy;<script>document.write(new Date().getFullYear());</script> {{ $data['web']->company }} | All rights reserved
                 </p>
                 <p class="footer-text">
-                  Powered by <a href="https://colorlib.com" target="_blank">Garis Kode</a>
+                  Powered by <a href="https://gariskode.com" target="_blank">Garis Kode</a>
                 </p>	
               </div>							
             </div>		
           </div>					
         </div>
       </div>
-    </footer>	
+    </footer>
+    
+    <div>
+      <div class="float-button-wrapper">
+          <div class="float-button-page">
+              <a href="https://wa.me/{{ $data['contact']->whatsapp }}"><img src='{{ asset('/theme') }}/img/wa.png' width="150"></a>
+          </div>
+      </div>
+  </div>
 
     <!-- End footer Area -->	
 

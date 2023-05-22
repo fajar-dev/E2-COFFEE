@@ -30,7 +30,7 @@
               <div class="col-md-9 offset-md-3">
                 <div class="">
                   <div class="me-3">
-                    <img src="{{Storage::url($data['web']->logo)}}" id="preview" class="img-fluid mb-8"alt="">
+                    <img src="{{Storage::url($data['web']->logo)}}" class="bg-dark mb-4" id="preview" class="img-fluid mb-8"alt="">
                   </div>
               </div>
             </div>

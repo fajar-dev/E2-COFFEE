@@ -44,7 +44,7 @@
   </div>	
 </section>
 
-<section class="menu-area section-gap" id="coffee">
+<section class="menu-area section-gap" id="product">
   <div class="container">
     <div class="row">
       <div class="menu-content pb-60 col-lg-10">
@@ -98,7 +98,7 @@
   </div>	
 </section>
 
-<section class="review-area section-gap" id="review">
+<section class="review-area section-gap" id="contact">
   <div class="container">
     <div class="row">
       <div class="menu-content pb-60 col-lg-12">

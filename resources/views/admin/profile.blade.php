@@ -87,7 +87,7 @@
                 <div class="">
                   <div>
                     <div class="input-group">
-                      <input type="password" class="form-control" required name="pw">
+                      <input type="password" class="form-control" id="password" required name="pw">
                     </div>
                   </div>
                 </div>
@@ -101,7 +101,7 @@
                 <div class="">
                   <div>
                     <div class="input-group">
-                      <input type="password" class="form-control" required name="pw1">
+                      <input type="password" class="form-control" id="confirm_password" onchange="check()" required name="pw2">
                     </div>
                   </div>
                 </div>
@@ -123,13 +123,13 @@
 
 @section('script')
 <script>
-  function showPreview(event){
-  if(event.target.files.length > 0){
-      var src = URL.createObjectURL(event.target.files[0]);
-      var preview = document.getElementById("preview");
-      preview.src = src;
-      preview.style.display = "block";
+function check() {
+    if(document.getElementById('password').value ===
+            document.getElementById('confirm_password').value) {
+        document.getElementById('message').innerHTML = "match";
+    } else {
+        document.getElementById('message').innerHTML = "no match";
     }
-  }
+}
 </script>
 @endsection

@@ -25,29 +25,25 @@
         <!-- table  -->
         <div class="table-responsive">
           <table class="table mb-0">
-            <thead class="table-light">
-              <tr>
-                <th>name</th>
-                <th>Email</th>
-                <th>Subject</th>
-                <th>Message</th>
-                <th>Action</th>
-              </tr>
-            </thead>
             <tbody>
               @foreach ($data['inbox'] as $row)
               <tr>
-                <td class="align-middle">
-                  {{ $row->name }}
-                </td>
-                <td class="align-middle">
-                  {{ $row->email }}
-                </td>
                 <td class="align-middle">
                   <div class="lh-1">
                     <h5 class=" mb-1">
                       {{ $row->subject }}
                     </h5>
+                    <small class="text-muted">{{ $row->created_at }}</small>
+                  </div>
+                </td>
+                <td class="align-middle">
+                  <div class="lh-1">
+                    <h5 class=" mb-1">
+                      {{ $row->name }}
+                    </h5>
+                    <small class="text-muted">
+                      {{ $row->email }}
+                    </small>
                   </div>
                 </td>
                 <td class="align-middle">

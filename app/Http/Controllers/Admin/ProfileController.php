@@ -28,10 +28,14 @@ class ProfileController extends Controller
         if(!Hash::check($request->old, auth()->user()->password) ){
             return redirect()->route('profile')->with('error',"Old Password Doesn't match!");
         }else{
-            DB::table('users')->where('id', Auth::user()->id)->update([
-                'password' => Hash::make($request->pw)
-            ]);
-            return redirect()->route('logout');
+            if($request->pw != $request->pw2){
+                return redirect()->route('profile')->with('error',"Repeat Password Doesn't match!");
+            }else{
+                DB::table('users')->where('id', Auth::user()->id)->update([
+                    'password' => Hash::make($request->pw)
+                ]);
+                return redirect()->route('logout');
+            }
         }
     }
 }

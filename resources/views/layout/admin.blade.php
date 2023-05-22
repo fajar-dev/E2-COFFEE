@@ -160,7 +160,7 @@
             </div>
         </div>
 
-    <!-- Libs JS -->
+        <!-- Libs JS -->
 <script src="{{ asset('/admin') }}/assets/libs/jquery/dist/jquery.min.js"></script>
 <script src="{{ asset('/admin') }}/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('/admin') }}/assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
